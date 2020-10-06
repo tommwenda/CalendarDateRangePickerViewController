@@ -43,7 +43,7 @@ public class CalendarDateRangePickerViewController: UICollectionViewController {
         collectionView?.backgroundColor = UIColor.white
 
         collectionView?.register(CalendarDateRangePickerCell.self, forCellWithReuseIdentifier: cellReuseIdentifier)
-        collectionView?.register(CalendarDateRangePickerHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier)
+        collectionView?.register(CalendarDateRangePickerHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier)
         collectionView?.contentInset = collectionViewInsets
         
         if minimumDate == nil {
@@ -58,10 +58,11 @@ public class CalendarDateRangePickerViewController: UICollectionViewController {
         self.navigationItem.rightBarButtonItem?.isEnabled = selectedStartDate != nil && selectedEndDate != nil
     }
     
+    @objc
     func didTapCancel() {
         delegate.didCancelPickingDateRange()
     }
-    
+    @objc
     func didTapDone() {
         if selectedStartDate == nil || selectedEndDate == nil {
             return
